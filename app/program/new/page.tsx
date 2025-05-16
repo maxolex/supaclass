@@ -6,29 +6,20 @@ import AuthLayout from '@/components/AuthLayout';
 import Input from '@/components/Input';
 import Button from '@/components/Button';
 
-export default function ExistingProgram() {
+export default function NewProgram() {
   const router = useRouter();
-  const [websiteUrl, setWebsiteUrl] = useState('');
-  const [isValidUrl, setIsValidUrl] = useState(false);
+  const [programName, setProgramName] = useState('');
+  const [isValidName, setIsValidName] = useState(false);
   
-  const handleUrlChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const url = e.target.value;
-    setWebsiteUrl(url);
-    
-    // Simple URL validation
-    try {
-      // If user doesn't include http/https, we'll add it for validation
-      const urlToCheck = url.match(/^https?:\/\//i) ? url : `https://${url}`;
-      new URL(urlToCheck);
-      setIsValidUrl(true);
-    } catch (e) {
-      setIsValidUrl(false);
-    }
+  const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const name = e.target.value;
+    setProgramName(name);
+    setIsValidName(name.trim().length > 0);
   };
   
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (websiteUrl) {
+    if (isValidName) {
       router.push('/program/domain');
     }
   };
@@ -38,27 +29,34 @@ export default function ExistingProgram() {
   };
   
   return (
-    <AuthLayout title="Where is your program currently hosted?">
+    <AuthLayout title="What's the name of your program?">
       <div className="w-full flex flex-col gap-6">
         <p className="text-gray-400 text-left">
-          Share the website or platform where your program is currently hosted.
-          This helps us integrate it seamlessly with Supaclass for a smoother experience.
+          Enter the name of your existing program to set it up on Supaclass. This
+          will help us organize your experience.
         </p>
         
         <form onSubmit={handleSubmit} className="w-full flex flex-col gap-4">
-          <Input 
-            type="text" 
-            value={websiteUrl}
-            onChange={handleUrlChange}
-            placeholder="www.website.com"
-            required
-          />
+          <div className="relative">
+            <Input 
+              type="text" 
+              value={programName}
+              onChange={handleNameChange}
+              placeholder="Untitled Program"
+              required
+            />
+            {programName.length > 0 && (
+              <div className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-red-500 text-white p-1 rounded-md text-xs">
+                UP
+              </div>
+            )}
+          </div>
           
           <div className="mt-4 flex flex-col gap-3">
             <Button 
               type="submit" 
               variant="primary"
-              isActive={isValidUrl}
+              isActive={isValidName}
             >
               Continue
             </Button>
