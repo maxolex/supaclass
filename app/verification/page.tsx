@@ -32,7 +32,7 @@ export default function Verification() {
       if (from === 'signup') {
         router.push('/profile/setup'); // Or whatever your registration next step is
       } else {
-        router.push('/welcome'); // Default for login
+        router.push('/dashboard'); // Default for login
       }
     }
   };

@@ -10,7 +10,7 @@ export default function Welcome() {
   const username = "Rasheed"; // This would normally come from your auth state
   
   const handleContinue = () => {
-    router.push('/dashboard');
+    router.push('/program/setup');
   };
   
   return (
@@ -26,7 +26,7 @@ export default function Welcome() {
             Continue
           </Button>
           
-          <Button variant="outline" onClick={() => router.push('/login')}>
+          <Button variant="outline" onClick={() => router.push('/phone-verification')}>
             Back
           </Button>
         </div>

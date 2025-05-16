@@ -21,7 +21,7 @@ export default function PhoneVerification() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (phoneNumber && countryCode) {
-      router.push(`/program/setup`);
+      router.push(`/welcome`);
     }
   };
   
