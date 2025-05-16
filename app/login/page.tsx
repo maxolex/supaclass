@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import AuthLayout from '@/components/AuthLayout';
 import Input from '@/components/Input';
@@ -10,10 +10,17 @@ import SocialButton from '@/components/SocialButton';
 
 export default function Login() {
   const [email, setEmail] = useState('');
+  const [isValidEmail, setIsValidEmail] = useState(false);
+  
+  useEffect(() => {
+    // Simple email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    setIsValidEmail(emailRegex.test(email));
+  }, [email]);
   
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
-    if (email) {
+    if (email && isValidEmail) {
       window.location.href = `/verification?email=${encodeURIComponent(email)}`;
     }
   };
@@ -22,7 +29,7 @@ export default function Login() {
     <AuthLayout 
       title="Log Into Supaclass" 
       subtitle={
-        <div className="text-center">
+        <div className="text-left">
           Don&apos;t have an account? <Link href="/signup" className="text-gray-100 hover:underline">Create an account</Link>
         </div>
       }
@@ -38,7 +45,11 @@ export default function Login() {
           />
         </div>
         
-        <Button type="submit" variant="primary">
+        <Button 
+          type="submit" 
+          variant="primary" 
+          isActive={isValidEmail}
+        >
           Log in
         </Button>
         
@@ -55,7 +66,7 @@ export default function Login() {
           />
         </div>
         
-        <div className="text-sm text-gray-400 mt-4 text-center">
+        <div className="text-sm text-gray-400 mt-4">
           By signing up to Supaclass, you acknowledge that you have read and agree to
           <Link href="/terms" className="text-gray-400 hover:text-gray-300"> Terms </Link>
           and

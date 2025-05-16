@@ -77,11 +77,11 @@ const VerificationInput: React.FC<VerificationInputProps> = ({ length, onChange,
   };
 
   return (
-    <div className="flex gap-2">
+    <div className="flex gap-2 justify-start">
       {Array.from({ length }).map((_, index) => (
         <input
           key={index}
-          ref={(el) => { inputRefs.current[index] = el as HTMLInputElement; }}
+          ref={(el) => (inputRefs.current[index] = el as HTMLInputElement)}
           type="text"
           inputMode="text"
           maxLength={1}

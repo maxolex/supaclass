@@ -11,11 +11,11 @@ const AuthLayout: React.FC<AuthLayoutProps> = ({ children, title, subtitle }) =>
   return (
     <div className="min-h-screen bg-[#121212] flex flex-col items-center justify-center px-4">
       <div className="w-full max-w-[561px] flex flex-col gap-10">
-        <div className="flex flex-col items-center gap-9">
-          <div className="flex flex-col items-center gap-5">
+        <div className="flex flex-col items-start gap-9 w-full">
+          <div className="flex flex-col items-start gap-5 w-full">
             <Logo />
             <h1 className="text-4xl font-semibold text-gray-100">{title}</h1>
-            {subtitle && <div className="text-gray-400 text-base font-medium">{subtitle}</div>}
+            {subtitle && <div className="text-gray-400 text-base font-medium w-full">{subtitle}</div>}
           </div>
           {children}
         </div>

@@ -16,13 +16,13 @@ export default function Welcome() {
   return (
     <AuthLayout title={`No worries, ${username}`}>
       <div className="w-full flex flex-col gap-8">
-        <p className="text-gray-400 text-center">
+        <p className="text-gray-400 text-left">
           We&apos;ll help you set up hosting for your program with a custom domain.
           Let&apos;s get started and make it yours in just a few steps.
         </p>
         
         <div className="flex flex-col gap-3">
-          <Button onClick={handleContinue}>
+          <Button onClick={handleContinue} isActive={true}>
             Continue
           </Button>
           

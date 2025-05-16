@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import AuthLayout from '@/components/AuthLayout';
 import Input from '@/components/Input';
@@ -10,10 +10,17 @@ export default function PhoneVerification() {
   const router = useRouter();
   const [phoneNumber, setPhoneNumber] = useState('');
   const [countryCode, setCountryCode] = useState('+1');
+  const [isFormValid, setIsFormValid] = useState(false);
+  
+  useEffect(() => {
+    // Simple validation for phone number
+    const phoneRegex = /^\d{6,15}$/; // Basic validation for digits only, 6-15 chars
+    setIsFormValid(phoneRegex.test(phoneNumber) && countryCode.trim() !== '');
+  }, [phoneNumber, countryCode]);
   
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (phoneNumber) {
+    if (phoneNumber && countryCode) {
       router.push(`/verification?phone=${encodeURIComponent(`${countryCode}${phoneNumber}`)}`);
     }
   };
@@ -25,7 +32,7 @@ export default function PhoneVerification() {
   return (
     <AuthLayout title="What's your phone number?">
       <div className="w-full flex flex-col gap-6">
-        <p className="text-gray-400 text-center">
+        <p className="text-gray-400 text-left">
           This information will be utilized to authenticate your account and grant access to features such as direct messaging.
         </p>
         
@@ -52,7 +59,11 @@ export default function PhoneVerification() {
           </div>
           
           <div className="mt-4 flex flex-col gap-3">
-            <Button type="submit" variant="primary">
+            <Button 
+              type="submit" 
+              variant="primary"
+              isActive={isFormValid}
+            >
               Continue
             </Button>
             

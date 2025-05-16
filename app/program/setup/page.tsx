@@ -22,7 +22,7 @@ export default function ProgramSetup() {
   return (
     <AuthLayout title="Do you already have a program?">
       <div className="w-full flex flex-col gap-8">
-        <p className="text-gray-400 text-center">
+        <p className="text-gray-400 text-left">
           If you already have an existing program, we&apos;ll help you set it up in no time.
           If you&apos;re new to this, let&apos;s build your perfect program from scratch.
         </p>
@@ -31,6 +31,7 @@ export default function ProgramSetup() {
           <Button 
             className="flex-1" 
             onClick={handleExistingProgram}
+            isActive={true}
           >
             Yes, I do
           </Button>
