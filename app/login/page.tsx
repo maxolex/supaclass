@@ -68,9 +68,9 @@ export default function Login() {
         
         <div className="text-sm text-gray-400 mt-4">
           By signing up to Supaclass, you acknowledge that you have read and agree to
-          <Link href="/terms" className="text-gray-400 hover:text-gray-300"> Terms </Link>
+          <Link href="/terms" className="text-white hover:text-gray-300"> Terms </Link>
           and
-          <Link href="/privacy" className="text-gray-400 hover:text-gray-300"> Privacy Policy</Link>.
+          <Link href="/privacy" className="text-white hover:text-gray-300"> Privacy Policy</Link>.
         </div>
       </form>
     </AuthLayout>

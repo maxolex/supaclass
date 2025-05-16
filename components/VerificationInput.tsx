@@ -81,7 +81,7 @@ const VerificationInput: React.FC<VerificationInputProps> = ({ length, onChange,
       {Array.from({ length }).map((_, index) => (
         <input
           key={index}
-          ref={(el) => (inputRefs.current[index] = el as HTMLInputElement)}
+          ref={(el) => { inputRefs.current[index] = el as HTMLInputElement; }}
           type="text"
           inputMode="text"
           maxLength={1}
@@ -89,7 +89,7 @@ const VerificationInput: React.FC<VerificationInputProps> = ({ length, onChange,
           onChange={(e) => handleChange(index, e)}
           onKeyDown={(e) => handleKeyDown(index, e)}
           onPaste={handlePaste}
-          className="w-12 h-12 bg-transparent border border-gray-700 rounded-md text-center text-xl text-white focus:border-gray-500 focus:outline-none"
+          className="w-22 h-12 bg-transparent border border-gray-700 rounded-md text-center text-xl text-white focus:border-gray-500 focus:outline-none"
           autoComplete="off"
         />
       ))}

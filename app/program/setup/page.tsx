@@ -38,7 +38,7 @@ export default function ProgramSetup() {
           
           <Button 
             className="flex-1" 
-            variant="secondary"
+            variant="outline"
             onClick={handleNewProgram}
           >
             No, I don&apos;t

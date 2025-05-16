@@ -10,6 +10,7 @@ export default function Verification() {
   const searchParams = useSearchParams();
   const router = useRouter();
   const email = searchParams.get('email') || '';
+  const from = searchParams.get('from') || 'login'; // Default to 'login' if not specified
   const [verificationCode, setVerificationCode] = useState('');
   const [isValidCode, setIsValidCode] = useState(false);
   
@@ -27,12 +28,17 @@ export default function Verification() {
   const handleVerification = (e: React.FormEvent) => {
     e.preventDefault();
     if (verificationCode.length === 6) {
-      router.push('/welcome');
+      // Redirect based on where the user came from
+      if (from === 'signup') {
+        router.push('/profile/setup'); // Or whatever your registration next step is
+      } else {
+        router.push('/welcome'); // Default for login
+      }
     }
   };
   
   const handleGoBack = () => {
-    router.push('/login');
+    router.push(from === 'signup' ? '/signup' : '/login');
   };
   
   return (
