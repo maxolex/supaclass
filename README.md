@@ -1,8 +1,8 @@
-## Getting Started
+# Getting Started
 
 Follow these steps to install and run the Supaclass frontend:
 
-### 1. Clone the repository
+## 1. Clone the repository
 
 ```bash
 git clone https://github.com/maxolex/supaclass.git
@@ -93,10 +93,9 @@ The project follows a standard Next.js App Router structure:
 
 ## Customization
 
-You can customize the colors and theme by modifying the `tailwind.config.ts` file.// public/README.md
-# Supaclass Public Assets
+You can customize the colors and theme by modifying the `tailwind.config.ts` file.
 
-This directory contains all the public assets used in the Supaclass application:
+<!-- See public/README.md for information about public assets. -->
 
 - SVG icons for social login (Google, Apple)
 - Logo assets
