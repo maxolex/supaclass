@@ -1,8 +1,27 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
-
 ## Getting Started
 
-First, run the development server:
+Follow these steps to install and run the Supaclass frontend:
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/maxolex/supaclass.git
+cd supaclass
+```
+
+### 2. Install dependencies
+
+```bash
+npm install
+# or
+yarn
+# or
+pnpm install
+# or
+bun install
+```
+
+### 3. Run the development server
 
 ```bash
 npm run dev
@@ -16,21 +35,73 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 4. Build for production
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+# or
+yarn build
+# or
+pnpm build
+# or
+bun build
+```
 
-## Learn More
+### 5. Start the production server
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm run start
+# or
+yarn start
+# or
+pnpm start
+# or
+bun start
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Project Structure
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+The project follows a standard Next.js App Router structure:
 
-## Deploy on Vercel
+- `/app` - Contains all the application pages and layouts
+- `/components` - Reusable UI components
+- `/public` - Static assets (SVGs, images, etc.)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Implemented Pages
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. **Authentication Flow**
+   - `/login` - Login page
+   - `/signup` - Signup page
+   - `/verification` - Code verification page
+   - `/profile/setup` - User profile setup
+   - `/phone-verification` - Phone number verification
+   - `/welcome` - Welcome page after successful authentication
+
+2. **Program Setup Flow**
+   - `/program/setup` - Program selection (existing or new)
+   - `/program/existing` - Existing program integration
+
+3. **Dashboard**
+   - `/dashboard` - Main dashboard page after authentication
+
+## Technologies Used
+
+- **Next.js 14** with App Router
+- **TypeScript** for type safety
+- **Tailwind CSS** for styling
+- **React** for UI components
+
+## Customization
+
+You can customize the colors and theme by modifying the `tailwind.config.ts` file.// public/README.md
+# Supaclass Public Assets
+
+This directory contains all the public assets used in the Supaclass application:
+
+- SVG icons for social login (Google, Apple)
+- Logo assets
+- Other static files
+
+## Icon Attribution
+
+Icons are custom-made for the Supaclass platform.
